@@ -1,0 +1,3 @@
+Metric               p-value    Significance
+--------------------------------------------------
+ROUGE score:         0.051      Not Significant

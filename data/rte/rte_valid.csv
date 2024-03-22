@@ -1,0 +1,11 @@
+sentence1,sentence2,label
+The Longest Day ever lengthens. The 25th anniversary celebration of the first Normandy landing lasted three days; the 50th will spread out over a year.,50th Anniversary of Normandy Landings lasts a year.,1 (entailment)
+Pibul Songgram was the pro-Japanese military dictator of Thailand during World War 2.,Pibul was the dictator of Thailand.,1 (entailment)
+The drugs that slow down or halt Alzheimer's disease work best the earlier you administer them.,Alzheimer's disease is treated using drugs.,1 (entailment)
+Swansea striker Lee Trundle has negotiated a lucrative image-rights deal with the League One club.,Lee Trundle is in business with the League One club.,1 (entailment)
+The most sought after piece and the most expensive item was a bronze bust of Spencer Tracy that Hepburn created in the 1960s.,The highest-selling item was a bronze bust made by Hepburn in the 1960s of her actor lover Spencer Tracy.,1 (entailment)
+Amazon shares fell nearly 4 percent following the results as the company said operating income would drop as much as 42 percent in the second quarter.,Shares of Amazon fell 4 percent.,0 (not entailment)
+"Microsoft for instance, one of the world's largest software companies, lost more than an estimated 500 million dollars last year because of software theft.",Microsoft would spend 500 million dollars.,0 (not entailment)
+"La Paz, 30 May 89 - La Paz Department Police authorities have disclosed that investigations into the murder of two young U.S. citizens are being conducted by a specialized group summoned specially to clarify this crime.",Two young U.S. citizens were killed on 30 May 89.,0 (not entailment)
+"When Albright was the US ambassador to the United Nations, Lesley Stahl of ""60 Minutes"" asked her about the sanctions and the deaths of Iraqi children. Albright said it was America's responsibility to make sure the Gulf War did not have to be fought again.","Albright said that to punish Saddam Hussein, the deaths of those children were ""worth it.""",0 (not entailment)
+"It appears that the super-conducting maglev system is technically ready to be used commercially as a very high-speed, large-capacity transportation system.",Maglev is commercially used.,0 (not entailment)

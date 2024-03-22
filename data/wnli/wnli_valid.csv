@@ -1,0 +1,11 @@
+sentence1,sentence2,label
+Jane knocked on Susan's door but she did not answer.,Susan did not answer.,1 (entailment)
+"The lawyer asked the witness a question, but he was reluctant to repeat it.",The lawyer was reluctant to repeat it.,1 (entailment)
+The delivery truck zoomed by the school bus because it was going so slow.,The school bus was going so slow.,1 (entailment)
+"The cat was lying by the mouse hole waiting for the mouse, but it was too cautious.",The mouse was too cautious.,1 (entailment)
+"The dog chased the cat, which ran up a tree. It waited at the top.",The cat waited at the top.,1 (entailment)
+"Susan knew that Ann's son had been in a car accident, so she told her about it.",Ann told her about it.,0 (not entailment)
+The large ball crashed right through the table because it was made of styrofoam.,The large ball was made of styrofoam.,0 (not entailment)
+"The older students were bullying the younger ones, so we rescued them.",We rescued the older students.,0 (not entailment)
+Sam's drawing was hung just above Tina's and it did look much better with another one below it.,Tina's drawing did look much better with another one below it.,0 (not entailment)
+"George got free tickets to the play, but he gave them to Eric, because he was not particularly eager to see it.",Eric was not particularly eager to see it.,0 (not entailment)
