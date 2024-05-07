@@ -1,8 +1,10 @@
 from openai import OpenAI
+from services.base_client import BaseClient
 
 
-class OpenAIClient:
+class OpenAIClient(BaseClient):
     def __init__(self):
+        super().__init__()
         self.client = OpenAI()
 
     def get_text(

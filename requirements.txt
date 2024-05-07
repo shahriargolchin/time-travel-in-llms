@@ -6,3 +6,5 @@ pandas==2.2.1
 tqdm==4.66.2
 absl-py==2.1.0
 rouge_score==0.1.2
+haystack-ai==2.0.1
+transformers
