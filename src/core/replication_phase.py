@@ -79,6 +79,12 @@ class ReplicationPhase(ExperimentResultSaver):
 
         formatted_prompt = self._prepare_prompt(prompt, row, first_piece)
 
+        if index == 0:
+            logger.info(
+                f"""Input prompt:
+            {formatted_prompt}"""
+            )
+
         self.df.at[index, self.generated_text_column] = self.openai_client.get_text(
             text=formatted_prompt, model=self.args.model
         )
