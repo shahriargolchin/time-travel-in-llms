@@ -3,6 +3,8 @@
 
 This repository hosts the components necessary for implementing all the methods proposed in the paper, [Time Travel in LLMs: Tracing Data Contamination in Large Language Models](https://openreview.net/forum?id=2Rwq6c3tvr), authored by Shahriar Golchin* and Mihai Surdeanu.
 
+Explore more resources related to this paper: [video](https://recorder-v3.slideslive.com/?share=92015&s=3d4e371d-07c0-44ac-9e6e-06ecef31c3b4), [poster](https://iclr.cc/media/PosterPDFs/ICLR%202024/19550.png?t=1714614786.3643699), and [media](https://thenewstack.io/how-to-detect-and-clean-up-data-contamination-in-llms/).
+
 
 ## Overview
 
