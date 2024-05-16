@@ -12,7 +12,7 @@ TEXT_COLUMN="Your Text Column Name"
 # -- End of variables --
 
 
-python  ../../../src/run.py \
+python  ../src/run.py \
         --experiment "${EXPERIMENT}" \
         --filename "${FILENAME}" \
         --task "${TASK}" \
