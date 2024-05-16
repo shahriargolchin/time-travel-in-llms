@@ -9,6 +9,25 @@ from helpers.experiment_result_saver import ExperimentResultSaver
 logger = configure_logger(__name__)
 
 
+class ExperimentResultSaver:
+    def __init__(self, df, filename, experiment, save_intermediate_results):
+        self.df = df
+        self.experiment = experiment
+        self.save_intermediate_results = save_intermediate_results
+        self.file_path = Path(filename)
+        self.base_dir = Path(__file__).resolve().parent.parent.parent
+        self.results_dir = self.base_dir / "results" / self.experiment
+        self.results_dir.mkdir(parents=True, exist_ok=True)
+
+    def save_to_csv(self):
+        if self.save_intermediate_results:
+            self.df.to_csv(
+                self.results_dir / self.file_path.name,
+                encoding="utf-8",
+                index=False,
+            )
+
+
 class Alg1EvalPhase(ExperimentResultSaver):
     def __init__(self, df, args, scoring_tool, save_intermediate_results):
         self.df = df
@@ -47,12 +66,16 @@ class Alg1EvalPhase(ExperimentResultSaver):
     def resampling_and_save(self, general_scores, guided_scores):
         resampling_processor = ResamplingProcessor(num_resample=10_000)
 
+        result_filename = (
+            self.results_dir
+            / f"{self.metric}_resampling_results_for_{self.file_path.stem}.txt"
+        )
+
         resampling_processor.save_results(
             general=general_scores,
             guided=guided_scores,
             metric=self.metric,
-            result_filename=f"../../../results/{self.args.experiment}/\
-                {self.metric}_resampling_results_for_{self.file_path.stem}.txt",
+            result_filename=result_filename,
         )
 
     def evaluate(self):
@@ -73,9 +96,9 @@ class Alg1EvalPhase(ExperimentResultSaver):
         references, general_candidates, guided_candidates = self.text_prep()
 
         # sanity check
-        logger.info(f"Example reference: {references[0]}")
-        logger.info(f"Example general completion: {general_candidates[0]}")
-        logger.info(f"Example guided completion: {guided_candidates[0]}")
+        logger.info(f"Example of reference text: {references[0]}")
+        logger.info(f"Example of general completion: {general_candidates[0]}")
+        logger.info(f"Example of guided completion: {guided_candidates[0]}")
 
         general_scores, guided_scores = self.evaluate_score(
             references=references,
@@ -127,8 +150,8 @@ class Alg2EvalPhase(ExperimentResultSaver):
 
             # for sanity check in the terminal
             if index == 0:
-                logger.info(f"Example reference: {reference}")
-                logger.info(f"Example guided completion: {candidate}")
+                logger.info(f"Example of reference text: {reference}")
+                logger.info(f"Example of guided completion: {candidate}")
 
             icl_evaluation = self.scorer.score(reference=reference, candidate=candidate)
             self.df.at[index, "gpt4_icl_evaluation"] = icl_evaluation
@@ -144,10 +167,11 @@ class Alg2EvalPhase(ExperimentResultSaver):
             pattern_severity=self.pattern_severity,
         )
 
-        pattern_counter.evaluate_and_save_results(
-            result_filename=f"../../../results/{self.args.experiment}/\
-                gpt4_icl_evaluations_for_{self.file_path.stem}.txt"
+        result_filename = (
+            self.results_dir / f"gpt4_icl_evaluations_for_{self.file_path.stem}.txt"
         )
+
+        pattern_counter.evaluate_and_save_results(result_filename=result_filename)
 
         return self.df
 
