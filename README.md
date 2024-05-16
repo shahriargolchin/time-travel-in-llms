@@ -29,16 +29,16 @@ Afterward, proceed to the project's directory with this command:
 cd time-travel-in-llms
 ```
 
-Next, establish a conda environment to streamline the installation of required packages:
+Next, establish a virtual environment:
 
 ```console
-conda create --name time-travel-env python=3.11.8
+python3.11 -m venv time-travel-venv
 ```
 
 Now, activate your environment:
 
 ```console
-conda activate time-travel-env
+source time-travel-venv/bin/activate
 ```
 
 Lastly, use pip to install all the requisite packages:
