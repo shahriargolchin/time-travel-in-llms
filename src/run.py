@@ -51,7 +51,7 @@ if __name__ == "__main__":
         df = Alg2EvalPhase(
             df=df,
             args=args,
-            scorer=ICL(),
+            scorer=ICL(args),
             pattern_severity={
                 "Yes \\(exact match\\)": 1,
                 "Yes \\(near\\-exact match\\)": 2,

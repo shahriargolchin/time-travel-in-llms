@@ -1,6 +1,6 @@
 import evaluate
 from prompts.icl_evaluation import ICLEvaluation
-from services.openai_api import OpenAIClient
+from services.base_client import BaseClient
 from helpers.logging_config import configure_logger
 
 logger = configure_logger(__name__)
@@ -50,9 +50,13 @@ class Rouge:
 
 
 class ICL:
-    def __init__(self):
+    def __init__(self, args):
         self.icl_eval = ICLEvaluation()
-        self.openai_client = OpenAIClient()
+        self.openai_client = BaseClient.from_libary(
+            args.library,
+            generation_kwargs=args.generation_kwargs,
+            huggingface_pipeline_kwargs=args.pipeline_kwargs,
+        )
 
     def score(
         self,
