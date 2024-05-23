@@ -139,13 +139,13 @@ class ArgumentParser:
         self.parser.add_argument(
             "--generation_kwargs",
             type=json.loads,
-            default="None",
+            default="{}",
             help="Arguments for the hugginface generation ",
         )
         self.parser.add_argument(
             "--pipeline_kwargs",
             type=json.loads,
-            default="None",
+            default="{}",
             help="Arguments for the hugginface pipeline ",
         )
 
