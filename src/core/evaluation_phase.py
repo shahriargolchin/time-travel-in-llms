@@ -9,25 +9,6 @@ from helpers.experiment_result_saver import ExperimentResultSaver
 logger = configure_logger(__name__)
 
 
-class ExperimentResultSaver:
-    def __init__(self, df, filename, experiment, save_intermediate_results):
-        self.df = df
-        self.experiment = experiment
-        self.save_intermediate_results = save_intermediate_results
-        self.file_path = Path(filename)
-        self.base_dir = Path(__file__).resolve().parent.parent.parent
-        self.results_dir = self.base_dir / "results" / self.experiment
-        self.results_dir.mkdir(parents=True, exist_ok=True)
-
-    def save_to_csv(self):
-        if self.save_intermediate_results:
-            self.df.to_csv(
-                self.results_dir / self.file_path.name,
-                encoding="utf-8",
-                index=False,
-            )
-
-
 class Alg1EvalPhase(ExperimentResultSaver):
     def __init__(self, df, args, scoring_tool, save_intermediate_results):
         self.df = df
