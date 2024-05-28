@@ -1,11 +1,11 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/rte/test \
-        --filepath ../../../data/rte/rte_test.csv \
+        --experiment gpt4/wnli/valid \
+        --filepath ../../../data/wnli/wnli_valid.csv \
         --task nli \
-        --dataset RTE \
-        --split test \
+        --dataset WNLI \
+        --split validation \
         --model gpt-4-0613 \
         --text_column sentence1 sentence2 \
         --label_column label \

@@ -1,12 +1,12 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/wnli/test \
-        --filepath ../../../data/wnli/wnli_test.csv \
+        --experiment gpt3.5/rte/valid \
+        --filepath ../../../data/rte/rte_valid.csv \
         --task nli \
-        --dataset WNLI \
-        --split test \
-        --model gpt-4-0613 \
+        --dataset RTE \
+        --split validation \
+        --model gpt-3.5-turbo-0613 \
         --text_column sentence1 sentence2 \
         --label_column label \
         --process_guided_replication  \

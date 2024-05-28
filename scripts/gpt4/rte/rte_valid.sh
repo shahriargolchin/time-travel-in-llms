@@ -1,12 +1,12 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt3.5/rte/test \
-        --filepath ../../../data/rte/rte_test.csv \
+        --experiment gpt4/rte/valid \
+        --filepath ../../../data/rte/rte_valid.csv \
         --task nli \
         --dataset RTE \
-        --split test \
-        --model gpt-3.5-turbo-0613 \
+        --split validation \
+        --model gpt-4-0613 \
         --text_column sentence1 sentence2 \
         --label_column label \
         --process_guided_replication  \
