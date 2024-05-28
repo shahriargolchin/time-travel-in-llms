@@ -5,9 +5,9 @@ logger = configure_logger(__name__)
 
 
 class ExperimentResultSaver:
-    def __init__(self, df, filename, experiment, save_intermediate_results):
+    def __init__(self, df, filepath, experiment, save_intermediate_results):
         self.df = df
-        self.file_path = Path(filename)
+        self.filepath = Path(filepath)
         self.experiment = experiment
         self.save_intermediate_results = save_intermediate_results
         # Determine Absolute path dynamically
@@ -21,9 +21,10 @@ class ExperimentResultSaver:
     def save_to_csv(self):
         if self.save_intermediate_results:
             self.check_or_create_experiment_result_folder()
+            csv_filepath = self.results_dir / self.filepath.name
             self.df.to_csv(
-                self.results_dir / self.file_path.name,
+                csv_filepath,
                 encoding="utf-8",
                 index=False,
             )
-            logger.info(f"File saved to: {self.results_dir / self.file_path.name}")
+            logger.info(f"File saved to: {csv_filepath}")

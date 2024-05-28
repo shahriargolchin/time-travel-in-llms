@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt3.5/yelp/test \
-        --filename ../../../data/yelp/yelp_test.csv \
+        --filepath ../../../data/yelp/yelp_test.csv \
         --task cls \
         --dataset Yelp \
         --split test \

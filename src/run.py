@@ -13,7 +13,7 @@ logger = configure_logger(__name__)
 
 if __name__ == "__main__":
     args = ArgumentParser().parse_args()
-    df = pd.read_csv(args.filename, encoding="utf-8")
+    df = pd.read_csv(args.filepath, encoding="utf-8")
 
     if args.process_guided_replication:
         df = ReplicationPhase(

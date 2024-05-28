@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt4/xsum/train \
-        --filename ../../../data/xsum/xsum_train.csv \
+        --filepath ../../../data/xsum/xsum_train.csv \
         --task xsum \
         --dataset XSum \
         --split train \

@@ -14,7 +14,7 @@ TEXT_COLUMN="Your Text Column Name"
 
 python  ../src/run.py \
         --experiment "${EXPERIMENT}" \
-        --filename "${FILENAME}" \
+        --filepath "${FILENAME}" \
         --task "${TASK}" \
         --dataset "${DATASET}" \
         --split "${SPLIT}" \

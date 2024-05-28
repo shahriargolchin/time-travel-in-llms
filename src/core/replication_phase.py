@@ -18,7 +18,7 @@ class ReplicationPhase(ExperimentResultSaver):
         self.generated_text_column = f"generated_{self.instruction_type}_completion"
         self.openai_client = OpenAIClient()
         super().__init__(
-            self.df, self.args.filename, self.args.experiment, save_intermediate_results
+            self.df, args.filepath, args.experiment, save_intermediate_results
         )
 
     def split_text(self):

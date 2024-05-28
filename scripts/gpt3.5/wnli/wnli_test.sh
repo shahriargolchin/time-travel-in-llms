@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt3.5/wnli/test \
-        --filename ../../../data/wnli/wnli_test.csv \
+        --filepath ../../../data/wnli/wnli_test.csv \
         --task nli \
         --dataset WNLI \
         --split test \

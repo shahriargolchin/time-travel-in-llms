@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt4/rte/train \
-        --filename ../../../data/rte/rte_train.csv \
+        --filepath ../../../data/rte/rte_train.csv \
         --task nli \
         --dataset RTE \
         --split train \

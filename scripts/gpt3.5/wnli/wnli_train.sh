@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt3.5/wnli/train \
-        --filename ../../../data/wnli/wnli_train.csv \
+        --filepath ../../../data/wnli/wnli_train.csv \
         --task nli \
         --dataset WNLI \
         --split train \

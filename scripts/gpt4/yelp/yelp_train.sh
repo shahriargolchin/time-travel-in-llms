@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt4/yelp/train \
-        --filename ../../../data/yelp/yelp_train.csv \
+        --filepath ../../../data/yelp/yelp_train.csv \
         --task cls \
         --dataset Yelp \
         --split train \

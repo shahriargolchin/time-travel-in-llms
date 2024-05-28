@@ -10,7 +10,7 @@ class ArgumentParser:
 
     def initialize_parser(self):
         self.parser.add_argument(
-            "--filename",
+            "--filepath",
             required=True,
             type=str,
             help="The CSV file to be processed.",

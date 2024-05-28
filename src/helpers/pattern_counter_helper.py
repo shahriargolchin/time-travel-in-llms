@@ -14,8 +14,8 @@ class PatternCounter:
                     counts[pattern] += 1
         return counts
 
-    def save_results(self, result_filename, counts):
-        with open(result_filename, "w") as f:
+    def save_results(self, result_filepath, counts):
+        with open(result_filepath, "w") as f:
             f.write(
                 f"{'Metric':<15} {'Match Type':<30}{'Count':<10} {'Contaminated'}\n"
             )
@@ -25,6 +25,6 @@ class PatternCounter:
                     f"{'GPT-4 ICL:':<15} {pattern:<30}{count:<10} {'Yes' if count >= self.pattern_severity[pattern] else 'No'}\n"
                 )
 
-    def evaluate_and_save_results(self, result_filename):
+    def evaluate_and_save_results(self, result_filepath):
         counts = self.count_patterns()
-        self.save_results(result_filename, counts)
+        self.save_results(result_filepath, counts)

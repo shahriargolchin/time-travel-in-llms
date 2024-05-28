@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt4/imdb/test \
-        --filename ../../../data/imdb/imdb_test.csv \
+        --filepath ../../../data/imdb/imdb_test.csv \
         --task cls \
         --dataset IMDB \
         --split test \

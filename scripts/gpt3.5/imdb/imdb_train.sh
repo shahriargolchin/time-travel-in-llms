@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt3.5/imdb/train \
-        --filename ../../../data/imdb/imdb_train.csv \
+        --filepath ../../../data/imdb/imdb_train.csv \
         --task cls \
         --dataset IMDB \
         --split train \

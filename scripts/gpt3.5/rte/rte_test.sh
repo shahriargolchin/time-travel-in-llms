@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt3.5/rte/test \
-        --filename ../../../data/rte/rte_test.csv \
+        --filepath ../../../data/rte/rte_test.csv \
         --task nli \
         --dataset RTE \
         --split test \

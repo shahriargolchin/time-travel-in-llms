@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt4/xsum/test \
-        --filename ../../../data/xsum/xsum_test.csv \
+        --filepath ../../../data/xsum/xsum_test.csv \
         --task xsum \
         --dataset XSum \
         --split test \

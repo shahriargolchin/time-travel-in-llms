@@ -15,9 +15,9 @@ class Alg1EvalPhase(ExperimentResultSaver):
         self.args = args
         self.scoring_tool = scoring_tool
         self.metric = str(scoring_tool.__class__.__name__).lower().strip()
-        self.file_path = Path(args.filename)
+        self.filepath = Path(args.filepath)
         super().__init__(
-            self.df, args.filename, args.experiment, save_intermediate_results
+            self.df, args.filepath, args.experiment, save_intermediate_results
         )
 
     def text_prep(self):
@@ -49,7 +49,7 @@ class Alg1EvalPhase(ExperimentResultSaver):
 
         result_filename = (
             self.results_dir
-            / f"{self.metric}_resampling_results_for_{self.file_path.stem}.txt"
+            / f"{self.metric}_resampling_results_for_{self.filepath.stem}.txt"
         )
 
         resampling_processor.save_results(
@@ -102,9 +102,9 @@ class Alg2EvalPhase(ExperimentResultSaver):
         self.args = args
         self.scorer = scorer
         self.pattern_severity = pattern_severity
-        self.file_path = Path(self.args.filename)
+        self.filepath = Path(self.args.filepath)
         super().__init__(
-            self.df, self.args.filename, self.args.experiment, save_intermediate_results
+            self.df, self.args.filepath, self.args.experiment, save_intermediate_results
         )
 
     def evaluate(self):
@@ -148,11 +148,11 @@ class Alg2EvalPhase(ExperimentResultSaver):
             pattern_severity=self.pattern_severity,
         )
 
-        result_filename = (
-            self.results_dir / f"gpt4_icl_evaluations_for_{self.file_path.stem}.txt"
+        result_filepath = (
+            self.results_dir / f"gpt4_icl_evaluations_for_{self.filepath.stem}.txt"
         )
 
-        pattern_counter.evaluate_and_save_results(result_filename=result_filename)
+        pattern_counter.evaluate_and_save_results(result_filepath=result_filepath)
 
         return self.df
 

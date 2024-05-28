@@ -2,7 +2,7 @@
 
 python  ../../../src/run.py \
         --experiment gpt4/samsum/test \
-        --filename ../../../data/samsum/samsum_test.csv \
+        --filepath ../../../data/samsum/samsum_test.csv \
         --task sum \
         --dataset SAMSum \
         --split test \
