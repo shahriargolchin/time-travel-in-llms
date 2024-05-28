@@ -2,7 +2,7 @@
 
 # -- Set the variables below with appropriate values --
 EXPERIMENT="Path to Your Experiment Results" 
-FILENAME="Path to Your Data File" 
+FILEPATH="Path to Your Data File" 
 TASK="Task Corresponds to Your Dataset"
 DATASET="Your Dataset Name" 
 SPLIT="Split Corresponds to Your Data" 
@@ -14,7 +14,7 @@ TEXT_COLUMN="Your Text Column Name"
 
 python  ../src/run.py \
         --experiment "${EXPERIMENT}" \
-        --filepath "${FILENAME}" \
+        --filepath "${FILEPATH}" \
         --task "${TASK}" \
         --dataset "${DATASET}" \
         --split "${SPLIT}" \
