@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+time-travel-venv/
 
 # Spyder project settings
 .spyderproject
