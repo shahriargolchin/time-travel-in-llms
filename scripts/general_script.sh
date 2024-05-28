@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # -- Set the variables below with appropriate values --
-EXPERIMENT="path_to_your_experiment_results" 
-FILENAME="path_to_your_data_file.csv" 
+EXPERIMENT="Path to Your Experiment Results" 
+FILENAME="Path to Your Data File" 
 TASK="Task Corresponds to Your Dataset"
 DATASET="Your Dataset Name" 
 SPLIT="Split Corresponds to Your Data" 
