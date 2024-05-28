@@ -13,7 +13,7 @@ class ArgumentParser:
             "--filename",
             required=True,
             type=str,
-            help="The CSV file to be processed",
+            help="The CSV file to be processed.",
         )
         self.parser.add_argument(
             "--task",
@@ -21,20 +21,21 @@ class ArgumentParser:
             type=str,
             choices=["cls", "nli", "sum", "xsum"],
             help="The task corresponding to the dataset. "
-            "For nli and cls tasks, label column should be specified.",
+            "For nli and cls tasks, label column should be specified. "
+            "(Choices: %(choices)s)",
         )
         self.parser.add_argument(
             "--dataset",
             required=True,
             type=str,
-            help="Dataset name",
+            help="Dataset name.",
         )
         self.parser.add_argument(
             "--split",
             required=True,
             type=str,
             choices=["train", "test", "validation"],
-            help="The segment of the dataset (e.g., 'train', 'test', 'validation')",
+            help="Dataset partition. (Choices: %(choices)s)",
         )
         self.parser.add_argument(
             "--model",
@@ -42,7 +43,7 @@ class ArgumentParser:
             type=str,
             help="Model name to be evaluated for contamination. "
             "Select an OpenAI model snapshot, such as a version "
-            "of GPT-4 or GPT-3.5",
+            "of GPT-4 or GPT-3.5.",
         )
         self.parser.add_argument(
             "--text_column",
