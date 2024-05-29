@@ -9,7 +9,7 @@ Since our technique is inexpensive and is capable of identifying contamination u
 
 ## Detailed Explanation of Input Arguments:
 
-- `filename` (required): The CSV filename that is used for the detection of data contamination. As mentioned, this can be a small part of your entire dataset.
+- `filepath` (required): The CSV filepath that is used for the detection of data contamination. As mentioned, this can be a small part of your entire dataset.
 
 - `task` (required): The task that corresponds to your dataset. Tasks available include classification (`cls`), natural language inference (`nli`), summarization (`sum`), and extreme summarization (`xsum`).
 
