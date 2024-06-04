@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt3.5/xsum/test \
+        --experiment ../../../results/gpt3.5/xsum/test \
         --filepath ../../../data/xsum/xsum_test.csv \
         --task xsum \
         --dataset XSum \

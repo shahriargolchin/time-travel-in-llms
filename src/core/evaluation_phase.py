@@ -48,7 +48,7 @@ class Alg1EvalPhase(ExperimentResultSaver):
         resampling_processor = ResamplingProcessor(num_resample=10_000)
 
         result_filename = (
-            self.results_dir
+            self.experiment
             / f"{self.metric}_resampling_results_for_{self.filepath.stem}.txt"
         )
 
@@ -149,7 +149,7 @@ class Alg2EvalPhase(ExperimentResultSaver):
         )
 
         result_filepath = (
-            self.results_dir / f"gpt4_icl_evaluations_for_{self.filepath.stem}.txt"
+            self.experiment / f"gpt4_icl_evaluations_for_{self.filepath.stem}.txt"
         )
 
         pattern_counter.evaluate_and_save_results(result_filepath=result_filepath)

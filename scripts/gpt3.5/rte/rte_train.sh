@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt3.5/rte/train \
+        --experiment ../../../results/gpt3.5/rte/train \
         --filepath ../../../data/rte/rte_train.csv \
         --task nli \
         --dataset RTE \

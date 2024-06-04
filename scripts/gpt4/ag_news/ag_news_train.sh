@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/ag_news/train \
+        --experiment ../../../results/gpt4/ag_news/train \
         --filepath ../../../data/ag_news/ag_news_train.csv \
         --task cls \
         --dataset "AG News" \

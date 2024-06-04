@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/yelp/test \
+        --experiment ../../../results/gpt4/yelp/test \
         --filepath ../../../data/yelp/yelp_test.csv \
         --task cls \
         --dataset Yelp \

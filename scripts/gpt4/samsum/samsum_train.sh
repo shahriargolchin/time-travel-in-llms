@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/samsum/train \
+        --experiment ../../../results/gpt4/samsum/train \
         --filepath ../../../data/samsum/samsum_train.csv \
         --task sum \
         --dataset SAMSum \

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt3.5/wnli/valid \
+        --experiment ../../../results/gpt3.5/wnli/valid \
         --filepath ../../../data/wnli/wnli_valid.csv \
         --task nli \
         --dataset WNLI \

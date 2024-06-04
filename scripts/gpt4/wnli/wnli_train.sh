@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/wnli/train \
+        --experiment ../../../results/gpt4/wnli/train \
         --filepath ../../../data/wnli/wnli_train.csv \
         --task nli \
         --dataset WNLI \

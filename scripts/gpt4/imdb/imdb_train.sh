@@ -1,7 +1,7 @@
 #!/bin/bash
 
 python  ../../../src/run.py \
-        --experiment gpt4/imdb/train \
+        --experiment ../../../results/gpt4/imdb/train \
         --filepath ../../../data/imdb/imdb_train.csv \
         --task cls \
         --dataset IMDB \
