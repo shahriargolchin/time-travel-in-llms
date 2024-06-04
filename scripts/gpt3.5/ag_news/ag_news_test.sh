@@ -8,7 +8,7 @@ python  ../../../src/run.py \
         --split test \
         --model gpt-3.5-turbo-0613 \
         --text_column text \
-        --label_column column \
+        --label_column label \
         --process_guided_replication  \
         --process_general_replication \
         --bleurt_eval \
