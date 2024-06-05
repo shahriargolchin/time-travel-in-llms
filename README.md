@@ -128,7 +128,7 @@ If you find our work useful, please use <b><ins>only</ins></b> the following sta
 
 ### Further Reading on Data Contamination
 
-If you are interested in the field of data contamination detection in LLMs, you might find our second paper, [Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models](https://arxiv.org/abs/2311.06233) (repo available [here](https://github.com/shahriargolchin/DCQ])), particularly useful. In this paper, we present a novel method not only for detecting contamination in LLMs but also for <b><ins>estimating its amount</ins></b> in fully black-box LLMs. For reference, you can cite this paper using the standard citation format provided below:
+If you are interested in the field of data contamination detection in LLMs, you might find our second paper, [Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models](https://arxiv.org/abs/2311.06233) (repo available [here](https://github.com/shahriargolchin/DCQ)), particularly useful. In this paper, we present a novel method not only for detecting contamination in LLMs but also for <b><ins>estimating its amount</ins></b> in fully black-box LLMs. For reference, you can cite this paper using the standard citation format provided below:
 
 ```bibtex
 @article{DBLP:journals/corr/abs-2311-06233,
@@ -143,6 +143,7 @@ If you are interested in the field of data contamination detection in LLMs, you 
   doi          = {10.48550/ARXIV.2311.06233},
   eprinttype    = {arXiv},
   eprint       = {2311.06233},
+
   timestamp    = {Wed, 15 Nov 2023 16:23:10 +0100},
   biburl       = {https://dblp.org/rec/journals/corr/abs-2311-06233.bib},
   bibsource    = {dblp computer science bibliography, https://dblp.org}
