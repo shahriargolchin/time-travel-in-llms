@@ -1,7 +1,8 @@
 import evaluate
+
+from helpers.logging_config import configure_logger
 from prompts.icl_evaluation import ICLEvaluation
 from services.openai_api import OpenAIClient
-from helpers.logging_config import configure_logger
 
 logger = configure_logger(__name__)
 

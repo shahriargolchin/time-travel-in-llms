@@ -1,24 +1,26 @@
 import time
-import tqdm
 from pathlib import Path
+
+from tqdm import tqdm
+
 from helpers.bootstrap_helper import ResamplingProcessor
-from helpers.pattern_counter_helper import PatternCounter
-from helpers.logging_config import configure_logger
 from helpers.experiment_result_saver import ExperimentResultSaver
+from helpers.logging_config import configure_logger
+from helpers.pattern_counter_helper import PatternCounter
 
 logger = configure_logger(__name__)
 
 
 class Alg1EvalPhase(ExperimentResultSaver):
     def __init__(self, df, args, scoring_tool, save_intermediate_results):
+        super().__init__(
+            df, args.filepath, args.experiment, save_intermediate_results
+        )
         self.df = df
         self.args = args
         self.scoring_tool = scoring_tool
         self.metric = str(scoring_tool.__class__.__name__).lower().strip()
         self.filepath = Path(args.filepath)
-        super().__init__(
-            self.df, args.filepath, args.experiment, save_intermediate_results
-        )
 
     def text_prep(self):
         if self.args.task == "nli":
@@ -47,7 +49,7 @@ class Alg1EvalPhase(ExperimentResultSaver):
     def resampling_and_save(self, general_scores, guided_scores):
         resampling_processor = ResamplingProcessor(num_resample=10_000)
 
-        result_filename = (
+        result_filepath = (
             self.experiment
             / f"{self.metric}_resampling_results_for_{self.filepath.stem}.txt"
         )
@@ -56,7 +58,7 @@ class Alg1EvalPhase(ExperimentResultSaver):
             general=general_scores,
             guided=guided_scores,
             metric=self.metric,
-            result_filename=result_filename,
+            result_filepath=result_filepath,
         )
 
     def evaluate(self):
@@ -98,14 +100,14 @@ class Alg1EvalPhase(ExperimentResultSaver):
 
 class Alg2EvalPhase(ExperimentResultSaver):
     def __init__(self, df, args, scorer, pattern_severity, save_intermediate_results):
+        super().__init__(
+            df, args.filepath, args.experiment, save_intermediate_results
+        )
         self.df = df
         self.args = args
         self.scorer = scorer
         self.pattern_severity = pattern_severity
         self.filepath = Path(self.args.filepath)
-        super().__init__(
-            self.df, self.args.filepath, self.args.experiment, save_intermediate_results
-        )
 
     def evaluate(self):
         logger.info("Starting evaluation using GPT-4 ICL ...")
@@ -119,29 +121,30 @@ class Alg2EvalPhase(ExperimentResultSaver):
                 "completions by running --process_guided_replication."
             )
 
-        pbar = tqdm.tqdm(total=len(self.df), desc="Generating evaluations:")
+        with tqdm(total=len(self.df), desc="Generating evaluations") as pbar:
+            for index, row in self.df.iterrows():
+                reference = (
+                    str(row[self.args.text_column[1]])
+                    if self.args.task == "nli"
+                    else str(row["second_piece"])
+                )
+                candidate = str(row["generated_guided_completion"])
 
-        for index, row in self.df.iterrows():
-            reference = (
-                str(row[self.args.text_column[1]])
-                if self.args.task == "nli"
-                else str(row["second_piece"])
-            )
-            candidate = str(row["generated_guided_completion"])
+                # for sanity check in the terminal
+                if index == 0:
+                    logger.info(f"Example of reference text: {reference}")
+                    logger.info(f"Example of guided completion: {candidate}")
 
-            # for sanity check in the terminal
-            if index == 0:
-                logger.info(f"Example of reference text: {reference}")
-                logger.info(f"Example of guided completion: {candidate}")
+                icl_evaluation = self.scorer.score(
+                    reference=reference, candidate=candidate
+                )
+                self.df.at[index, "gpt4_icl_evaluation"] = icl_evaluation
 
-            icl_evaluation = self.scorer.score(reference=reference, candidate=candidate)
-            self.df.at[index, "gpt4_icl_evaluation"] = icl_evaluation
+                pbar.update(1)
+                time.sleep(3)
 
-            pbar.update(1)
-            time.sleep(3)
-
-        pbar.close()
-        self.save_to_csv()
+            pbar.close()
+            self.save_to_csv()
 
         pattern_counter = PatternCounter(
             evaluations=list(self.df["gpt4_icl_evaluation"]),

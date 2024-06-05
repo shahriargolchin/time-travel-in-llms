@@ -1,6 +1,7 @@
-from nltk.tokenize import sent_tokenize
 import random
+
 import nltk
+from nltk.tokenize import sent_tokenize
 
 nltk.download("punkt")
 

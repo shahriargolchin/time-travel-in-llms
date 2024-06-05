@@ -1,25 +1,27 @@
-import pandas as pd
-import tqdm
 import time
-from services.openai_api import OpenAIClient
+
+import pandas as pd
+from tqdm import tqdm
+
 from helpers.experiment_result_saver import ExperimentResultSaver
-from helpers.text_helper import split_text_randomly
 from helpers.logging_config import configure_logger
+from helpers.text_helper import split_text_randomly
+from services.openai_api import OpenAIClient
 
 logger = configure_logger(__name__)
 
 
 class ReplicationPhase(ExperimentResultSaver):
     def __init__(self, df, args, instruction, save_intermediate_results):
+        super().__init__(
+            df, args.filepath, args.experiment, save_intermediate_results
+        )
         self.df = df
         self.args = args
         self.instruction = instruction
         self.instruction_type = str(instruction.__class__.__name__).lower()
         self.generated_text_column = f"generated_{self.instruction_type}_completion"
         self.openai_client = OpenAIClient()
-        super().__init__(
-            self.df, args.filepath, args.experiment, save_intermediate_results
-        )
 
     def split_text(self):
         if self.args.task == "nli" or all(
@@ -57,15 +59,14 @@ class ReplicationPhase(ExperimentResultSaver):
 
         self.split_text()
 
-        pbar = tqdm.tqdm(total=len(self.df), desc="Generating completions:")
+        with tqdm(total=len(self.df), desc="Generating completions") as pbar:
+            for index, row in self.df.iterrows():
+                self._perform_task(index, row)
+                pbar.update(1)
+                time.sleep(3)
 
-        for index, row in self.df.iterrows():
-            self._perform_task(index, row)
-            pbar.update(1)
-            time.sleep(3)
-
-        pbar.close()
-        self.save_to_csv()
+            pbar.close()
+            self.save_to_csv()
 
         return self.df
 

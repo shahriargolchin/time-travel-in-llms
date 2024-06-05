@@ -1,4 +1,5 @@
 import random
+
 import numpy as np
 
 
@@ -26,11 +27,11 @@ class ResamplingProcessor:
         )
         return 1 - (count / self.num_resample)
 
-    def save_results(self, general, guided, metric, result_filename):
+    def save_results(self, general, guided, metric, result_filepath):
         p_value = self.compute_p_value(scores_general=general, scores_guided=guided)
         metric_score = f"{metric.upper()} score:"
 
-        with open(result_filename, "w") as f:
+        with open(result_filepath, "w") as f:
             f.write(f"{'Metric':<20} {'p-value':<10} {'Significance'}\n")
             f.write(f"{'-' * 50}\n")
             p_value_str = f"{p_value:.3f}"

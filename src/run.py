@@ -1,17 +1,17 @@
-from prompts.general_instructions import General
-from prompts.guided_instructions import Guided
-from helpers.metric_helper import Rouge, Bleurt, ICL
-from services.argparse_handler import ArgumentParser
 import pandas as pd
+
 from core.evaluation_phase import Alg1EvalPhase, Alg2EvalPhase
 from core.replication_phase import ReplicationPhase
 from helpers.logging_config import configure_logger
-
+from helpers.metric_helper import ICL, Bleurt, Rouge
+from prompts.general_instructions import General
+from prompts.guided_instructions import Guided
+from services.argparse_handler import ArgumentParser
 
 logger = configure_logger(__name__)
 
 
-if __name__ == "__main__":
+def main():
     args = ArgumentParser().parse_args()
     df = pd.read_csv(args.filepath, encoding="utf-8")
 
@@ -60,3 +60,7 @@ if __name__ == "__main__":
         ).evaluate()
 
     logger.info("*** All process done! ***")
+
+
+if __name__ == "__main__":
+    main()
