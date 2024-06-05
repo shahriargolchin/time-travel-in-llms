@@ -13,9 +13,7 @@ logger = configure_logger(__name__)
 
 class Alg1EvalPhase(ExperimentResultSaver):
     def __init__(self, df, args, scoring_tool, save_intermediate_results):
-        super().__init__(
-            df, args.filepath, args.experiment, save_intermediate_results
-        )
+        super().__init__(df, args.filepath, args.experiment, save_intermediate_results)
         self.df = df
         self.args = args
         self.scoring_tool = scoring_tool
@@ -100,9 +98,7 @@ class Alg1EvalPhase(ExperimentResultSaver):
 
 class Alg2EvalPhase(ExperimentResultSaver):
     def __init__(self, df, args, scorer, pattern_severity, save_intermediate_results):
-        super().__init__(
-            df, args.filepath, args.experiment, save_intermediate_results
-        )
+        super().__init__(df, args.filepath, args.experiment, save_intermediate_results)
         self.df = df
         self.args = args
         self.scorer = scorer

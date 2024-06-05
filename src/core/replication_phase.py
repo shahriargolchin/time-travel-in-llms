@@ -13,9 +13,7 @@ logger = configure_logger(__name__)
 
 class ReplicationPhase(ExperimentResultSaver):
     def __init__(self, df, args, instruction, save_intermediate_results):
-        super().__init__(
-            df, args.filepath, args.experiment, save_intermediate_results
-        )
+        super().__init__(df, args.filepath, args.experiment, save_intermediate_results)
         self.df = df
         self.args = args
         self.instruction = instruction
