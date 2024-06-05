@@ -13,7 +13,7 @@ class ArgumentParser:
             "--filepath",
             required=True,
             type=str,
-            help="The CSV file to be processed.",
+            help="The filepath to the CSV file containing the original dataset instances.",
         )
         self.parser.add_argument(
             "--task",
@@ -21,7 +21,7 @@ class ArgumentParser:
             type=str,
             choices=["cls", "nli", "sum", "xsum"],
             help="The task corresponding to the dataset. "
-            "For nli and cls tasks, label column should be specified. "
+            "For NLI and classification tasks, label column should be specified. "
             "(Choices: %(choices)s)",
         )
         self.parser.add_argument(
@@ -59,7 +59,8 @@ class ArgumentParser:
             "--label_column",
             type=str,
             default=None,
-            help="Column name for label if the task comes with label.",
+            help="Column name for labels corresponding to the dataset instances "
+            "if the task comes with label.",
         )
         self.parser.add_argument(
             "--should_split_text",
@@ -93,17 +94,17 @@ class ArgumentParser:
         self.parser.add_argument(
             "--bleurt_eval",
             action="store_true",
-            help="Enable evaluation based on the BLEURT score.",
+            help="If the evaluation should be performed based on the BLEURT score.",
         )
         self.parser.add_argument(
             "--rouge_eval",
             action="store_true",
-            help="Enable evaluation based on the ROUGE-L score.",
+            help="If the evaluation should be performed based on the ROUGE-L score.",
         )
         self.parser.add_argument(
             "--icl_eval",
             action="store_true",
-            help="Enable evaluation based on the GPT-4 ICL prompt.",
+            help="If the evaluation should be performed based on the GPT-4 ICL prompt.",
         )
         self.parser.add_argument(
             "--process_guided_replication",
@@ -127,8 +128,7 @@ class ArgumentParser:
             "--experiment",
             type=str,
             required=True,
-            help="The name of the experiment. All final results will be saved "
-            "under this name in the results directory.",
+            help="The name of the experiment. All final results will be saved in this directory.",
         )
 
     def check_text_column(self, args):
