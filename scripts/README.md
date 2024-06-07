@@ -28,7 +28,7 @@ Since our technique is inexpensive and capable of detecting contamination using 
 
 - `label_column` (conditional): The name of the column that contains the labels corresponding to the dataset instances in the input CSV file. This is required if the task comes with labels such as `cls` and `nli`.
 
-- `should_text_split` (conditional): If the dataset instances need to be randomly split. This is required for datasets other than NLI. Splitting is performed differently based on the structure of each data point. Refer to the paper for more details. For the data that has already been pre-split, you can skip the splitting process. Ensure that the pre-split data is divided into `first_piece` and `second_piece` columns.
+- `should_split_text` (conditional): If the dataset instances need to be randomly split. This is required for datasets other than NLI. Splitting is performed differently based on the structure of each data point. Refer to the paper for more details. For the data that has already been pre-split, you can skip the splitting process. Ensure that the pre-split data is divided into `first_piece` and `second_piece` columns.
 
 - `icl_eval` (optional): Specifies if evaluations should be conducted based on GPT-4 ICL. This is our top-performing evaluation method.
 

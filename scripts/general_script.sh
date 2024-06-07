@@ -20,7 +20,7 @@ python  ../src/run.py \
         --split "${SPLIT}" \
         --model "${MODEL}" \
         --text_column "${TEXT_COLUMN}" \
-        --should_text_split \
+        --should_split_text \
         --process_guided_replication  \
         --icl_eval \
         --max_p 70 \
